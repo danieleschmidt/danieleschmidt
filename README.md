@@ -1,6 +1,6 @@
 # 👋 Hi, I'm Daniel Schmidt
 
-I'm a Machine Learning Architect & Head of Engineering at [ICA](https://www.icaconsulting.com), where I lead development of AI/NLP systems that help modernize FDA regulatory workflows.
+I'm a Machine Learning Architect & Head of Engineering at ICA, where I lead development of AI/NLP systems that help modernize FDA regulatory workflows.
 
 🔬 **What I work on:**
 - 📄 PDF layout and table extraction for regulatory documents
