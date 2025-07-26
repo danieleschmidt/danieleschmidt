@@ -6,7 +6,7 @@ Builder of Agentic AI Pipelines • OSS Maintainer
 </em></p>
 
 <p align="center">
-  <a href="https://github.com/danschmidt88">
+  <a href="https://github.com/danieleschmidt">
     <img src="https://img.shields.io/github/followers/danschmidt88?label=Follow&style=social">
   </a>
   <a href="#">
