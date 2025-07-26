@@ -1,0 +1,33 @@
+{
+  "timestamp": "2025-07-26T05:30:00Z",
+  "completed_ids": ["INFRA-001"],
+  "coverage_delta": "N/A - no tests yet",
+  "flaky_tests": [],
+  "ci_summary": "No CI configured yet",
+  "open_prs": 0,
+  "risks_or_blocks": [],
+  "backlog_size_by_status": {
+    "NEW": 2,
+    "REFINED": 0,
+    "READY": 1,
+    "DOING": 0,
+    "PR": 0,
+    "DONE": 1,
+    "BLOCKED": 0
+  },
+  "avg_cycle_time": "N/A - first completion",
+  "wsjf_snapshot": {
+    "highest_priority": {
+      "id": "INFRA-001",
+      "title": "Set up basic project structure",
+      "wsjf_score": 5.33,
+      "status": "DONE"
+    },
+    "next_ready": {
+      "id": "DOC-001", 
+      "title": "Enhance README with project overview",
+      "wsjf_score": 2.5,
+      "status": "READY"
+    }
+  }
+}
