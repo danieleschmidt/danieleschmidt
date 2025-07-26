@@ -7,13 +7,13 @@ Builder of Agentic AI Pipelines • OSS Maintainer
 
 <p align="center">
   <a href="https://github.com/danieleschmidt">
-    <img src="https://img.shields.io/github/followers/danschmidt88?label=Follow&style=social">
+    <img src="https://img.shields.io/github/followers/danieleschmidt?label=Follow&style=social">
   </a>
   <a href="#">
     <img src="https://img.shields.io/badge/LLMOps-RAG-blueviolet">
   </a>
-  <a href="https://github.com/danschmidt88/auto-pipeline/actions/workflows/ci.yml">
-    <img src="https://img.shields.io/github/actions/workflow/status/danschmidt88/auto-pipeline/ci.yml?branch=main&label=build">
+  <a href="https://github.com/danieleschmidt/auto-pipeline/actions/workflows/ci.yml">
+    <img src="https://img.shields.io/github/actions/workflow/status/danieleschmidt/auto-pipeline/ci.yml?branch=main&label=build">
   </a>
   <a href="docs/sbom/latest.json">
     <img src="https://img.shields.io/badge/SBOM-CycloneDX-0078d6">
@@ -31,8 +31,8 @@ Builder of Agentic AI Pipelines • OSS Maintainer
 - SBOM diff automation and real‑time DORA dashboards.
 
 ## 🏆 GitHub Stats
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=danschmidt88&show_icons=true)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=danschmidt88&layout=compact)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=danieleschmidt&show_icons=true)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=danieleschmidt&layout=compact)
 
 ## 🛠 Tech Stack
 `Python` • `TypeScript` • `Docker` • `AWS GovCloud` • `LangChain` • `Semantic‑Release` • `Cosign`
