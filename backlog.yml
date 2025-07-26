@@ -1,0 +1,96 @@
+# Autonomous Backlog Management
+# WSJF Scoring: Cost of Delay (value + time_criticality + risk_reduction) / Effort
+# Scale: 1-2-3-5-8-13 (Fibonacci-based)
+
+items:
+  - id: "INFRA-001"
+    title: "Set up basic project structure"
+    type: "infrastructure"
+    description: "Create foundational project structure with proper directories, config files, and documentation"
+    acceptance_criteria:
+      - "src/ directory created for source code"
+      - "tests/ directory created for test files"
+      - "docs/ directory created for documentation"
+      - "Basic .gitignore file added"
+      - "Contributing guidelines documented"
+    effort: 3
+    value: 8
+    time_criticality: 5
+    risk_reduction: 3
+    wsjf_score: 5.33  # (8+5+3)/3
+    status: "DONE"
+    risk_tier: "low"
+    created_at: "2025-07-26T05:30:00Z"
+    links: []
+
+  - id: "INFRA-002"
+    title: "Add CI/CD pipeline configuration"
+    type: "infrastructure"
+    description: "Set up GitHub Actions for automated testing, linting, and deployment"
+    acceptance_criteria:
+      - "GitHub Actions workflow file created"
+      - "Automated testing on PR/push to main"
+      - "Code quality checks (linting, formatting)"
+      - "Security scanning integrated"
+    effort: 5
+    value: 5
+    time_criticality: 3
+    risk_reduction: 8
+    wsjf_score: 3.2  # (5+3+8)/5
+    status: "READY"
+    risk_tier: "medium"
+    created_at: "2025-07-26T05:30:00Z"
+    links: []
+
+  - id: "INFRA-003"
+    title: "Create automated backlog discovery system"
+    type: "feature"
+    description: "Build tooling to automatically discover TODO/FIXME comments and convert them to backlog items"
+    acceptance_criteria:
+      - "Script scans codebase for TODO/FIXME/BUG comments"
+      - "Automatically creates backlog items with proper metadata"
+      - "Deduplication logic to prevent duplicate items"
+      - "Integration with existing backlog.yml format"
+    effort: 8
+    value: 13
+    time_criticality: 2
+    risk_reduction: 5
+    wsjf_score: 2.5  # (13+2+5)/8
+    status: "REFINED"
+    risk_tier: "low"
+    created_at: "2025-07-26T05:30:00Z"
+    links: []
+
+  - id: "DOC-001"
+    title: "Enhance README with project overview"
+    type: "documentation"
+    description: "Expand README to include project purpose, setup instructions, and contribution guide"
+    acceptance_criteria:
+      - "Clear project description and goals"
+      - "Installation/setup instructions"
+      - "Usage examples"
+      - "Contribution guidelines"
+      - "License information"
+    effort: 2
+    value: 3
+    time_criticality: 1
+    risk_reduction: 1
+    wsjf_score: 2.5  # (3+1+1)/2
+    status: "DONE"
+    risk_tier: "low"
+    created_at: "2025-07-26T05:30:00Z"
+    links: []
+
+metrics:
+  last_updated: "2025-07-26T05:30:00Z"
+  total_items: 4
+  by_status:
+    NEW: 0
+    REFINED: 2
+    READY: 0
+    DOING: 0
+    PR: 0
+    DONE: 2
+    BLOCKED: 0
+  avg_wsjf_score: 3.38
+  high_risk_items: 0
