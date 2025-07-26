@@ -1,83 +1,37 @@
-# Autonomous Backlog Management System
+<h1 align="center">Hi, I’m Daniel Schmidt 👋</h1>
 
-An intelligent backlog management system that uses WSJF (Weighted Shortest Job First) scoring to automatically discover, prioritize, and execute development tasks.
+<p align="center"><em>
+Sr Generative AI & Machine Learning Engineer @ Thomson Reuters Special Services
+ • Agentic Engineer • OSS Maintainer
+</em></p>
 
-## Overview
+<p align="center">
+  <a href="https://github.com/danschmidt88"><img src="https://img.shields.io/github/followers/danschmidt88?label=Follow&style=social"></a>
+  <a href="#"><img src="https://img.shields.io/badge/LLMOps-RAG-blueviolet"></a>
+  <a href="https://github.com/danschmidt88/auto-pipeline/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/danschmidt88/auto-pipeline/ci.yml?branch=main&label=build"></a>
+  <a href="docs/sbom/latest.json"><img src="https://img.shields.io/badge/SBOM-CycloneDX-0078d6"></a>
+</p>
 
-This system implements autonomous backlog management based on Lean-Agile principles:
+### 🚀 About Me
+- 📍 Based in the Washington DC – Baltimore area, building multilingual RAG systems & governance tooling for regulated industries :contentReference[oaicite:12]{index=12}.  
+- 🛠️ Current work: **AIRegRetrieve**—a multilingual RAG that cuts compliance‑research time; plus “IntelliSCALE” throughput optimiser :contentReference[oaicite:13]{index=13}.  
+- 🧰 **Top skills**: LLMOps, RAG & LangChain :contentReference[oaicite:14]{index=14}.  
+- 🗣️ Languages: native English & Hebrew :contentReference[oaicite:15]{index=15}.  
+- 🔬 Holder of **9 patents** in dynamic location sampling & multi‑sensor motion analytics :contentReference[oaicite:16]{index=16}.  
+- 🎓 B.S. Mathematics (UMass Amherst) & M.S. Computer Science (Wentworth Inst. of Tech.) :contentReference[oaicite:17]{index=17}.
 
-- **Continuous Discovery**: Automatically finds TODO/FIXME comments, failing tests, and technical debt
-- **WSJF Prioritization**: Scores items using Cost of Delay (Value + Time Criticality + Risk Reduction) / Effort
-- **Automated Execution**: Follows TDD principles with security-first development
-- **Metrics & Reporting**: Tracks progress and generates status reports
+### 💡 Currently Hacking On
+- Agentic CI/CD pipelines that self‑heal merge conflicts with Git `rerere` + custom drivers.  
+- End‑to‑end **semantic‑release** with Cosign key‑less provenance.  
+- SBOM diff automation to enforce zero‑day vulnerability SLAs.
 
-## Key Features
+### 🏆 Stats
+![Dan’s GitHub stats](https://github-readme-stats.vercel.app/api?username=danschmidt88&show_icons=true)  
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=danschmidt88&layout=compact)
 
-- 🔍 **Smart Discovery**: Scans codebase for actionable items
-- 📊 **Data-Driven Prioritization**: Uses proven WSJF methodology
-- 🛡️ **Security by Design**: Built-in security validation and safe practices
-- 🧪 **Test-Driven Development**: Red → Green → Refactor cycle
-- 📈 **Progress Tracking**: Automated metrics and reporting
+### 🛠 Tech Stack
+`Python` • `TypeScript` • `Docker` • `AWS GovCloud` • `LangChain` • `Semantic‑Release` • `Cosign`
 
-## Project Structure
-
-```
-├── src/              # Source code
-├── tests/            # Test files
-├── docs/             # Documentation
-│   └── status/       # Automated progress reports
-├── backlog.yml       # Centralized backlog with WSJF scoring
-├── CONTRIBUTING.md   # Development guidelines
-└── README.md         # This file
-```
-
-## Getting Started
-
-### Installation
-
-```bash
-git clone <repository-url>
-cd autonomous-backlog-management
-```
-
-### Usage
-
-1. **View Current Backlog**: Check `backlog.yml` for prioritized items
-2. **Add New Items**: Follow the format in `CONTRIBUTING.md`
-3. **Check Progress**: Review reports in `docs/status/`
-
-### Development Workflow
-
-1. Items flow through: `NEW → REFINED → READY → DOING → PR → DONE`
-2. All changes follow TDD: Write failing test → Make it pass → Refactor
-3. Security validation required for all inputs and outputs
-4. CI gates ensure code quality before merge
-
-## WSJF Scoring
-
-Items are prioritized using the Weighted Shortest Job First formula:
-
-```
-WSJF Score = (Value + Time Criticality + Risk Reduction) / Effort
-```
-
-All dimensions use Fibonacci scale: 1, 2, 3, 5, 8, 13
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines on:
-- Adding backlog items
-- Development workflow  
-- Testing standards
-- Security requirements
-
-## License
-
-MIT License - see LICENSE file for details
-
----
-
-**Created by**: Daniel Schmidt (danschmidt88@gmail.com)  
-**LinkedIn**: [daniel-schmidt-574482b8](https://www.linkedin.com/in/daniel-schmidt-574482b8)
-
-> "Build things that matter, and build them well."
+### 📫 Reach Me
+danschmidt88@gmail.com :contentReference[oaicite:18]{index=18} •  
+[LinkedIn](https://www.linkedin.com/in/daniel-schmidt-574482b8) :contentReference[oaicite:19]{index=19}
