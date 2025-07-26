@@ -1,4 +1,4 @@
-<h1 align="center">Hi, I’m Daniel Schmidt 👋</h1>
+<h1 align="center">Hi, I’m Daniel 👋</h1>
 
 <p align="center"><em>
 Sr Generative AI & Machine Learning Engineer @ Thomson Reuters Special Services
