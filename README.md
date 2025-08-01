@@ -248,23 +248,24 @@ Run PyTorch 2.4 in WebAssembly (no WebGPU).
   <img alt="GitHub stats" src="https://github-readme-stats.vercel.app/api?username=danieleschmidt&show_icons=true&theme=tokyonight"> <!-- :contentReference[oaicite:0]{index=0} -->
   <img alt="Top languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=danieleschmidt&layout=compact&hide=Jupyter%20Notebook"> <!-- :contentReference[oaicite:1]{index=1} -->
   <br>
-  <img alt="Git contribution snake" src="https://raw.githubusercontent.com/danieleschmidt/danieleschmidt/output/github-contribution-snake-dark.svg">
+<img alt="Git contribution snake" src="https://raw.githubusercontent.com/danieleschmidt/danieleschmidt/dist/snake-dark.svg">
 </p>
 
 ---
 
 ## 🛠 Core Tech Stack
 <p>
-  <img alt="Python"        src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white">
-  <img alt="TypeScript"    src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white">
-  <img alt="Rust"          src="https://img.shields.io/badge/Rust-b7410e?logo=rust&logoColor=white">
-  <img alt="Docker"        src="https://img.shields.io/badge/Docker-2496ed?logo=docker&logoColor=white">
-  <img alt="AWS GovCloud"  src="https://img.shields.io/badge/AWS GovCloud-232F3E?logo=amazonaws&logoColor=white">
-  <img alt="LangChain"     src="https://img.shields.io/badge/LangChain-00A67E">
-  <img alt="PyTorch 2.4"   src="https://img.shields.io/badge/PyTorch 2.4-ee4c2c?logo=pytorch&logoColor=white">
-  <img alt="MLIR"          src="https://img.shields.io/badge/MLIR-4c4d4f">
-  <img alt="Cosign"        src="https://img.shields.io/badge/Cosign-302683">
-  <img alt="CycloneDX"     src="https://img.shields.io/badge/CycloneDX-0078d6">
+![Python](https://img.shields.io/badge/Python-3670A0?logo=python&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![Rust](https://img.shields.io/badge/Rust-000000?logo=rust&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+![AWS GovCloud](https://img.shields.io/badge/AWS%20GovCloud-232F3E?logo=amazon-aws&logoColor=white)
+![PyTorch 2.4](https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-2AA198?logo=apache-openoffice&logoColor=white)
+![MLIR](https://img.shields.io/badge/MLIR-b312ad?logo=llvm&logoColor=white)
+![Cosign](https://img.shields.io/badge/Cosign-0064FA?logo=cosign&logoColor=white)
+![CycloneDX](https://img.shields.io/badge/CycloneDX-0078d6?logo=apache-maven&logoColor=white)
+
 </p>
 
 ---
