@@ -162,8 +162,84 @@ Agentic-AI Engineer • OSS Maintainer • Sr ML Architect @ Thomson Reuters Spe
 | [analog-pde-solver-sim](https://github.com/danieleschmidt/analog-pde-solver-sim) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/analog-pde-solver-sim?style=social) | Analog PDE solver simulator. |
 
 </details>
+<details> <summary><b>⚡ Developer Tools & Utilities</b></summary>
+Repo	⭐ Badge	What it does
+openapi-doc-generator	
+Auto-writes OpenAPI schemas & human docs from code.
+docker-optimizer-agent	
+Generates minimal, secure Dockerfiles + SBOM.
+crewai-email-triage	
+CrewAI inbox classifier / auto-replier.
+testgen-copilot	
+Suggests unit tests & vuln patches from diff.
+async-toolformer-orchestrator	
+Parallel tool-calling runtime for GPT-4o.
+agentauth (private)	–	Delegated credentials & Okta “Auth for GenAI”.
+hf-eco2ai-plugin	
+Logs CO₂, kWh & grid mix for each HF epoch.
+nimify-anything	
+Wrap any ONNX/TensorRT artefact into an NVIDIA NIM micro-service.
+Code-Mesh	
+Repo-wide embeddings & semantic code queries.
 
-*(All remaining repos — DevTooling, Data/Synthetic, Vision/Media, Supply-chain, etc. — are shown in [`EXTRA_PROJECTS.md`](./EXTRA_PROJECTS.md) to keep this page <約500 KB in raw size.)*
+</details> <details> <summary><b>📊 Data Analysis & Modeling</b></summary>
+Repo	⭐ Badge	Highlight
+llm-tab-cleaner	
+LLM-powered data-quality & cleaning pipeline.
+surrogate-gradient-optim-lab	
+Learned gradient surrogates for black-box optim.
+dynamic-graph-fed-rl-lab	
+Fed RL for time-evolving graph control.
+neoRL-industrial-gym	
+Offline RL benchmarks for industrial control.
+iot-anomaly-detector-timeseries	
+Multivariate sensor anomaly detection via LSTM-AE.
+
+</details> <details> <summary><b>🖼️ Vision, Media & Multimodal</b></summary>
+Repo	⭐ Badge	Highlight
+vid-diffusion-benchmark-suite	
+Unified latency / quality harness for VDMs.
+multimodal-contract-extractor	
+VLM that parses scanned legal PDFs.
+fast-vlm-ondevice-kit	
+<250 ms multimodal inference on iPhone.
+liquid-ai-vision-kit	
+Liquid Neural Nets for micro-drones & AVs.
+nerf-edge-kit	
+On-device NeRF for spatial computing headsets.
+
+</details> <details> <summary><b>📦 Supply-Chain & DevSecOps</b></summary>
+Repo	⭐ Badge	Highlight
+self-healing-pipeline-guard	
+Auto-fixes red CI pipelines.
+provenance-graph-sbom-linker	
+End-to-end supply-chain attestation.
+modelcard-as-code-generator	
+Turns eval logs → executable Model Cards.
+cot-safepath-filter	
+Sanitises chain-of-thought before it leaks.
+
+</details> <details> <summary><b>🧑‍⚕️ Synthetic Data, Fairness & Governance</b></summary>
+Repo	⭐ Badge	Highlight
+synthetic-data-guardian	
+Validated synthetic data + watermarking.
+fair-credit-scorer-bias-mitigation	
+Debiases credit-scoring models.
+biasaudit-pro (private)	–	Annex VII-ready bias auditing SaaS.
+
+</details> <details> <summary><b>🚀 Hardware & Performance</b></summary>
+Repo	⭐ Badge	Highlight
+gaudi3-scale-starter	
+PyTorch Lightning boilerplate for Intel Gaudi 3.
+edge-tpu-v5-benchmark-suite	
+First open harness for Google TPU v5e edge cards.
+dp-flash-attention	
+FlashAttn-3 kernels + Rényi DP noise, zero-overhead.
+wasm-shim-for-torch	
+Run PyTorch 2.4 in WebAssembly (no WebGPU).
+
+</details>
+
 
 ---
 
