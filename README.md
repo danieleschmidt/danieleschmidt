@@ -1,4 +1,4 @@
-<h1 align="center">Hi&nbsp;👋&nbsp;I’m Daniel&nbsp;Schmidt</h1>
+<h1 align="center">Hi&nbsp;👋&nbsp;I’m Daniel&nbsp;</h1>
 
 <p align="center"><em>
 Agentic-AI Engineer&nbsp;• OSS&nbsp;Maintainer&nbsp;• Sr&nbsp;ML&nbsp;Architect @ Thomson Reuters Special Services
