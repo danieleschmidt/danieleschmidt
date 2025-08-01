@@ -247,7 +247,6 @@ Agentic-AI Engineer • OSS Maintainer • Sr ML Architect @ Thomson Reuters Spe
   <img alt="GitHub stats" src="https://github-readme-stats.vercel.app/api?username=danieleschmidt&show_icons=true&theme=tokyonight">
   <img alt="Top languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=danieleschmidt&layout=compact&hide=Jupyter%20Notebook">
   <br>
-<img alt="Git contribution snake" src="https://raw.githubusercontent.com/danieleschmidt/danieleschmidt/main/dist/snake-dark.svg"></p>
 
 ---
 
