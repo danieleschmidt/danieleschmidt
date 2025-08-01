@@ -1,5 +1,5 @@
 <!-- profile README for github.com/danieleschmidt -->
-<h1 align="center">👋 Hi, I’m <span style="color:#00AEEF">Daniel Schmidt</span></h1>
+<h1 align="center">👋 Hi, I’m <span style="color:#00AEEF">Daniel</span></h1>
 <p align="center"><em>Sr Generative-AI &amp; ML Engineer @ Thomson Reuters Special Services • Agentic-AI Pipeline Builder • OSS Maintainer</em></p>
 
 <p align="center">
