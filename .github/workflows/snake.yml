@@ -1,0 +1,22 @@
+# .github/workflows/snake.yml
+name: Generate contribution snake
+
+on:
+  schedule: [{ cron: "0 */24 * * *" }]   # daily
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Platane/snk@v3
+        with:
+          github_user_name: danieleschmidt
+          outputs: |
+            dist/snake.svg
+            dist/snake-dark.svg?palette=github-dark
+      - name: Commit & push
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: "chore: update contribution snake"
+          add: "dist/*.svg"
