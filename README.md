@@ -50,7 +50,7 @@ Agentic-AI Engineer • OSS Maintainer • Sr ML Architect @ Thomson Reuters Spe
 
 ---
 
-## 🦾 Project Universe (115 repos)
+## 🦾 Project Universe
 
 <details>
 <summary><b>🕸️ Agent Frameworks &amp; Orchestration</b></summary>
