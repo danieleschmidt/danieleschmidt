@@ -1,5 +1,5 @@
 <!-- Top-line : greeting + headline -->
-<h1 align="center">Hi&nbsp;👋&nbsp;I’m Daniel</h1>
+<h1 align="center">Hi&nbsp;👋&nbsp;I'm Daniel</h1>
 
 <p align="center"><em>
 Agentic-AI Engineer • OSS Maintainer • Sr ML Architect @ Thomson Reuters Special Services
@@ -65,12 +65,11 @@ Agentic-AI Engineer • OSS Maintainer • Sr ML Architect @ Thomson Reuters Spe
 | [agent-skeptic-bench](https://github.com/danieleschmidt/agent-skeptic-bench) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/agent-skeptic-bench?style=social) | Truthfulness adversarial bench. |
 | [agentic-startup-studio](https://github.com/danieleschmidt/agentic-startup-studio) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/agentic-startup-studio?style=social) | Automate ideation → MVP → pivot loop. |
 | [agentic-startup-studio-boilerplate](https://github.com/danieleschmidt/agentic-startup-studio-boilerplate) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/agentic-startup-studio-boilerplate?style=social) | Cookiecutter skeleton (CrewAI + FastAPI + React). |
-| [agentauth](https://github.com/danieleschmidt/agentauth) (private) | – | Delegated credentials & Okta “Auth for GenAI”. |
+| [agentauth](https://github.com/danieleschmidt/agentauth) (private) | – | Delegated credentials & Okta "Auth for GenAI". |
 | [agent-orchestrated-etl](https://github.com/danieleschmidt/agent-orchestrated-etl) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/agent-orchestrated-etl?style=social) | LangChain ⇔ Airflow hybrid ETL. |
 | [crewai-email-triage](https://github.com/danieleschmidt/crewai-email-triage) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/crewai-email-triage?style=social) | Smart inbox classifier / replier. |
 | [slack-kb-agent](https://github.com/danieleschmidt/slack-kb-agent) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/slack-kb-agent?style=social) | Slack bot answers from team docs. |
 | [agentic-redteam-radar](https://github.com/danieleschmidt/agentic-redteam-radar) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/agentic-redteam-radar?style=social) | Cloud-Security-Alliance-inspired agent scanner. |
-| [async-toolformer-orchestrator](https://github.com/danieleschmidt/async-toolformer-orchestrator) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/async-toolformer-orchestrator?style=social) | Asyncio tool-calling. |
 
 </details>
 
@@ -162,110 +161,109 @@ Agentic-AI Engineer • OSS Maintainer • Sr ML Architect @ Thomson Reuters Spe
 | [analog-pde-solver-sim](https://github.com/danieleschmidt/analog-pde-solver-sim) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/analog-pde-solver-sim?style=social) | Analog PDE solver simulator. |
 
 </details>
-<details> <summary><b>⚡ Developer Tools & Utilities</b></summary>
-Repo	⭐ Badge	What it does
-openapi-doc-generator	
-Auto-writes OpenAPI schemas & human docs from code.
-docker-optimizer-agent	
-Generates minimal, secure Dockerfiles + SBOM.
-crewai-email-triage	
-CrewAI inbox classifier / auto-replier.
-testgen-copilot	
-Suggests unit tests & vuln patches from diff.
-async-toolformer-orchestrator	
-Parallel tool-calling runtime for GPT-4o.
-agentauth (private)	–	Delegated credentials & Okta “Auth for GenAI”.
-hf-eco2ai-plugin	
-Logs CO₂, kWh & grid mix for each HF epoch.
-nimify-anything	
-Wrap any ONNX/TensorRT artefact into an NVIDIA NIM micro-service.
-Code-Mesh	
-Repo-wide embeddings & semantic code queries.
 
-</details> <details> <summary><b>📊 Data Analysis & Modeling</b></summary>
-Repo	⭐ Badge	Highlight
-llm-tab-cleaner	
-LLM-powered data-quality & cleaning pipeline.
-surrogate-gradient-optim-lab	
-Learned gradient surrogates for black-box optim.
-dynamic-graph-fed-rl-lab	
-Fed RL for time-evolving graph control.
-neoRL-industrial-gym	
-Offline RL benchmarks for industrial control.
-iot-anomaly-detector-timeseries	
-Multivariate sensor anomaly detection via LSTM-AE.
+<details>
+<summary><b>⚡ Developer Tools &amp; Utilities</b></summary>
 
-</details> <details> <summary><b>🖼️ Vision, Media & Multimodal</b></summary>
-Repo	⭐ Badge	Highlight
-vid-diffusion-benchmark-suite	
-Unified latency / quality harness for VDMs.
-multimodal-contract-extractor	
-VLM that parses scanned legal PDFs.
-fast-vlm-ondevice-kit	
-<250 ms multimodal inference on iPhone.
-liquid-ai-vision-kit	
-Liquid Neural Nets for micro-drones & AVs.
-nerf-edge-kit	
-On-device NeRF for spatial computing headsets.
-
-</details> <details> <summary><b>📦 Supply-Chain & DevSecOps</b></summary>
-Repo	⭐ Badge	Highlight
-self-healing-pipeline-guard	
-Auto-fixes red CI pipelines.
-provenance-graph-sbom-linker	
-End-to-end supply-chain attestation.
-modelcard-as-code-generator	
-Turns eval logs → executable Model Cards.
-cot-safepath-filter	
-Sanitises chain-of-thought before it leaks.
-
-</details> <details> <summary><b>🧑‍⚕️ Synthetic Data, Fairness & Governance</b></summary>
-Repo	⭐ Badge	Highlight
-synthetic-data-guardian	
-Validated synthetic data + watermarking.
-fair-credit-scorer-bias-mitigation	
-Debiases credit-scoring models.
-biasaudit-pro (private)	–	Annex VII-ready bias auditing SaaS.
-
-</details> <details> <summary><b>🚀 Hardware & Performance</b></summary>
-Repo	⭐ Badge	Highlight
-gaudi3-scale-starter	
-PyTorch Lightning boilerplate for Intel Gaudi 3.
-edge-tpu-v5-benchmark-suite	
-First open harness for Google TPU v5e edge cards.
-dp-flash-attention	
-FlashAttn-3 kernels + Rényi DP noise, zero-overhead.
-wasm-shim-for-torch	
-Run PyTorch 2.4 in WebAssembly (no WebGPU).
+| Repo | Stars | What it does |
+|------|:----:|-------------|
+| [openapi-doc-generator](https://github.com/danieleschmidt/openapi-doc-generator) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/openapi-doc-generator?style=social) | Auto-writes OpenAPI schemas & human docs from code. |
+| [docker-optimizer-agent](https://github.com/danieleschmidt/docker-optimizer-agent) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/docker-optimizer-agent?style=social) | Generates minimal, secure Dockerfiles + SBOM. |
+| [crewai-email-triage](https://github.com/danieleschmidt/crewai-email-triage) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/crewai-email-triage?style=social) | CrewAI inbox classifier / auto-replier. |
+| [testgen-copilot](https://github.com/danieleschmidt/testgen-copilot) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/testgen-copilot?style=social) | Suggests unit tests & vuln patches from diff. |
+| [async-toolformer-orchestrator](https://github.com/danieleschmidt/async-toolformer-orchestrator) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/async-toolformer-orchestrator?style=social) | Parallel tool-calling runtime for GPT-4o. |
+| [agentauth](https://github.com/danieleschmidt/agentauth) (private) | – | Delegated credentials & Okta "Auth for GenAI". |
+| [hf-eco2ai-plugin](https://github.com/danieleschmidt/hf-eco2ai-plugin) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/hf-eco2ai-plugin?style=social) | Logs CO₂, kWh & grid mix for each HF epoch. |
+| [nimify-anything](https://github.com/danieleschmidt/nimify-anything) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/nimify-anything?style=social) | Wrap any ONNX/TensorRT artefact into an NVIDIA NIM micro-service. |
+| [Code-Mesh](https://github.com/danieleschmidt/Code-Mesh) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/Code-Mesh?style=social) | Repo-wide embeddings & semantic code queries. |
 
 </details>
 
+<details>
+<summary><b>📊 Data Analysis &amp; Modeling</b></summary>
+
+| Repo | Stars | Highlight |
+|------|:----:|-----------|
+| [llm-tab-cleaner](https://github.com/danieleschmidt/llm-tab-cleaner) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/llm-tab-cleaner?style=social) | LLM-powered data-quality & cleaning pipeline. |
+| [surrogate-gradient-optim-lab](https://github.com/danieleschmidt/surrogate-gradient-optim-lab) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/surrogate-gradient-optim-lab?style=social) | Learned gradient surrogates for black-box optim. |
+| [dynamic-graph-fed-rl-lab](https://github.com/danieleschmidt/dynamic-graph-fed-rl-lab) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/dynamic-graph-fed-rl-lab?style=social) | Fed RL for time-evolving graph control. |
+| [neoRL-industrial-gym](https://github.com/danieleschmidt/neoRL-industrial-gym) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/neoRL-industrial-gym?style=social) | Offline RL benchmarks for industrial control. |
+| [iot-anomaly-detector-timeseries](https://github.com/danieleschmidt/iot-anomaly-detector-timeseries) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/iot-anomaly-detector-timeseries?style=social) | Multivariate sensor anomaly detection via LSTM-AE. |
+
+</details>
+
+<details>
+<summary><b>🖼️ Vision, Media &amp; Multimodal</b></summary>
+
+| Repo | Stars | Highlight |
+|------|:----:|-----------|
+| [vid-diffusion-benchmark-suite](https://github.com/danieleschmidt/vid-diffusion-benchmark-suite) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/vid-diffusion-benchmark-suite?style=social) | Unified latency / quality harness for VDMs. |
+| [multimodal-contract-extractor](https://github.com/danieleschmidt/multimodal-contract-extractor) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/multimodal-contract-extractor?style=social) | VLM that parses scanned legal PDFs. |
+| [fast-vlm-ondevice-kit](https://github.com/danieleschmidt/fast-vlm-ondevice-kit) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/fast-vlm-ondevice-kit?style=social) | <250 ms multimodal inference on iPhone. |
+| [liquid-ai-vision-kit](https://github.com/danieleschmidt/liquid-ai-vision-kit) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/liquid-ai-vision-kit?style=social) | Liquid Neural Nets for micro-drones & AVs. |
+| [nerf-edge-kit](https://github.com/danieleschmidt/nerf-edge-kit) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/nerf-edge-kit?style=social) | On-device NeRF for spatial computing headsets. |
+
+</details>
+
+<details>
+<summary><b>📦 Supply-Chain &amp; DevSecOps</b></summary>
+
+| Repo | Stars | Highlight |
+|------|:----:|-----------|
+| [self-healing-pipeline-guard](https://github.com/danieleschmidt/self-healing-pipeline-guard) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/self-healing-pipeline-guard?style=social) | Auto-fixes red CI pipelines. |
+| [provenance-graph-sbom-linker](https://github.com/danieleschmidt/provenance-graph-sbom-linker) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/provenance-graph-sbom-linker?style=social) | End-to-end supply-chain attestation. |
+| [modelcard-as-code-generator](https://github.com/danieleschmidt/modelcard-as-code-generator) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/modelcard-as-code-generator?style=social) | Turns eval logs → executable Model Cards. |
+| [cot-safepath-filter](https://github.com/danieleschmidt/cot-safepath-filter) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/cot-safepath-filter?style=social) | Sanitises chain-of-thought before it leaks. |
+
+</details>
+
+<details>
+<summary><b>🧑‍⚕️ Synthetic Data, Fairness &amp; Governance</b></summary>
+
+| Repo | Stars | Highlight |
+|------|:----:|-----------|
+| [synthetic-data-guardian](https://github.com/danieleschmidt/synthetic-data-guardian) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/synthetic-data-guardian?style=social) | Validated synthetic data + watermarking. |
+| [fair-credit-scorer-bias-mitigation](https://github.com/danieleschmidt/fair-credit-scorer-bias-mitigation) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/fair-credit-scorer-bias-mitigation?style=social) | Debiases credit-scoring models. |
+| [biasaudit-pro](https://github.com/danieleschmidt/biasaudit-pro) (private) | – | Annex VII-ready bias auditing SaaS. |
+
+</details>
+
+<details>
+<summary><b>🚀 Hardware &amp; Performance</b></summary>
+
+| Repo | Stars | Highlight |
+|------|:----:|-----------|
+| [gaudi3-scale-starter](https://github.com/danieleschmidt/gaudi3-scale-starter) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/gaudi3-scale-starter?style=social) | PyTorch Lightning boilerplate for Intel Gaudi 3. |
+| [edge-tpu-v5-benchmark-suite](https://github.com/danieleschmidt/edge-tpu-v5-benchmark-suite) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/edge-tpu-v5-benchmark-suite?style=social) | First open harness for Google TPU v5e edge cards. |
+| [dp-flash-attention](https://github.com/danieleschmidt/dp-flash-attention) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/dp-flash-attention?style=social) | FlashAttn-3 kernels + Rényi DP noise, zero-overhead. |
+| [wasm-shim-for-torch](https://github.com/danieleschmidt/wasm-shim-for-torch) | ![Stars](https://img.shields.io/github/stars/danieleschmidt/wasm-shim-for-torch?style=social) | Run PyTorch 2.4 in WebAssembly (no WebGPU). |
+
+</details>
 
 ---
 
 ## 📊 Stats &amp; Contribution Heat-map
 <p align="center">
-  <img alt="GitHub stats" src="https://github-readme-stats.vercel.app/api?username=danieleschmidt&show_icons=true&theme=tokyonight"> <!-- :contentReference[oaicite:0]{index=0} -->
-  <img alt="Top languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=danieleschmidt&layout=compact&hide=Jupyter%20Notebook"> <!-- :contentReference[oaicite:1]{index=1} -->
+  <img alt="GitHub stats" src="https://github-readme-stats.vercel.app/api?username=danieleschmidt&show_icons=true&theme=tokyonight">
+  <img alt="Top languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=danieleschmidt&layout=compact&hide=Jupyter%20Notebook">
   <br>
-<img alt="Git contribution snake" src="https://raw.githubusercontent.com/danieleschmidt/danieleschmidt/dist/snake-dark.svg">
+  <img alt="Git contribution snake" src="https://raw.githubusercontent.com/danieleschmidt/danieleschmidt/dist/snake-dark.svg">
 </p>
 
 ---
 
 ## 🛠 Core Tech Stack
 <p>
-![Python](https://img.shields.io/badge/Python-3670A0?logo=python&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
-![Rust](https://img.shields.io/badge/Rust-000000?logo=rust&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
-![AWS GovCloud](https://img.shields.io/badge/AWS%20GovCloud-232F3E?logo=amazon-aws&logoColor=white)
-![PyTorch 2.4](https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white)
-![LangChain](https://img.shields.io/badge/LangChain-2AA198?logo=apache-openoffice&logoColor=white)
-![MLIR](https://img.shields.io/badge/MLIR-b312ad?logo=llvm&logoColor=white)
-![Cosign](https://img.shields.io/badge/Cosign-0064FA?logo=cosign&logoColor=white)
-![CycloneDX](https://img.shields.io/badge/CycloneDX-0078d6?logo=apache-maven&logoColor=white)
-
+  <img alt="Python" src="https://img.shields.io/badge/Python-3670A0?logo=python&logoColor=white">
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white">
+  <img alt="Rust" src="https://img.shields.io/badge/Rust-000000?logo=rust&logoColor=white">
+  <img alt="Docker" src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white">
+  <img alt="AWS GovCloud" src="https://img.shields.io/badge/AWS%20GovCloud-232F3E?logo=amazon-aws&logoColor=white">
+  <img alt="PyTorch 2.4" src="https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white">
+  <img alt="LangChain" src="https://img.shields.io/badge/LangChain-2AA198?logo=apache-openoffice&logoColor=white">
+  <img alt="MLIR" src="https://img.shields.io/badge/MLIR-b312ad?logo=llvm&logoColor=white">
+  <img alt="Cosign" src="https://img.shields.io/badge/Cosign-0064FA?logo=cosign&logoColor=white">
+  <img alt="CycloneDX" src="https://img.shields.io/badge/CycloneDX-0078d6?logo=apache-maven&logoColor=white">
 </p>
 
 ---
@@ -279,6 +277,6 @@ Run PyTorch 2.4 in WebAssembly (no WebGPU).
 
 ---
 
-> *“Build systems that **heal**, models that **explain**, and agents that **behave**.”*
+> *"Build systems that **heal**, models that **explain**, and agents that **behave**."*
 
 <!-- End README -->
