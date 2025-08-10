@@ -2,7 +2,7 @@
 <h1 align="center">Hi&nbsp;👋&nbsp;I'm Daniel</h1>
 
 <p align="center"><em>
-Agentic-AI Engineer • OSS Maintainer • Sr ML Architect @ Thomson Reuters Special Services
+Agentic-AI Engineer • OSS Maintainer • Sr SenAI & ML Engineer @ Thomson Reuters Special Services
 </em></p>
 
 <!-- Social / live-status badges -->
