@@ -37,7 +37,7 @@ Agentic-AI Engineer • OSS Maintainer • Sr GenAI & ML Engineer @ Thomson Reut
 ---
 
 ## 🚀 About Me
-* 📍 Based in the Washington DC — shipping multilingual RAG & governance tooling for regulated industries.  
+* 📍 Based in Washington DC — shipping multilingual RAG & governance tooling for regulated industries.  
 * 🔬 Inventor on **9 patents** covering dynamic-location sampling & sensor-fusion analytics.  
 * 🎓 B.S. Mathematics (UMass Amherst) • M.S. Computer Science (Wentworth Institute).  
 
