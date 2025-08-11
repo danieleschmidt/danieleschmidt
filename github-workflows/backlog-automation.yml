@@ -1,0 +1,372 @@
+name: Autonomous Backlog Management
+
+on:
+  schedule:
+    # Run daily at 6 AM UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - 'backlog.yml'
+      - 'src/**'
+      - 'tests/**'
+
+jobs:
+  backlog-discovery:
+    name: Discover TODO Items
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+
+      - name: Discover TODO items
+        run: |
+          python src/backlog_manager.py --discover > todo-discovery.txt
+
+      - name: Check for new TODOs
+        id: check-todos
+        run: |
+          if [ -s todo-discovery.txt ]; then
+            echo "new-todos=true" >> $GITHUB_OUTPUT
+            echo "Found new TODO items"
+            cat todo-discovery.txt
+          else
+            echo "new-todos=false" >> $GITHUB_OUTPUT
+            echo "No new TODO items found"
+          fi
+
+      - name: Create Issue for new TODOs
+        if: steps.check-todos.outputs.new-todos == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const todoContent = fs.readFileSync('todo-discovery.txt', 'utf8');
+            
+            const issueBody = `
+            ## 🔍 Automated TODO Discovery
+            
+            Found TODO/FIXME items in the codebase that should be added to the backlog:
+            
+            \`\`\`
+            ${todoContent}
+            \`\`\`
+            
+            ### Recommended Actions:
+            1. Review discovered items
+            2. Add relevant items to backlog.yml with proper WSJF scoring
+            3. Remove outdated TODO comments from code
+            4. Close this issue once processed
+            
+            *This issue was created automatically by the backlog management system.*
+            `;
+            
+            const { data: issue } = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🤖 TODO Items Discovery - ${new Date().toDateString()}`,
+              body: issueBody,
+              labels: ['automation', 'backlog', 'todo-discovery']
+            });
+            
+            console.log(`Created issue #${issue.number}`);
+
+      - name: Upload discovery results
+        uses: actions/upload-artifact@v4
+        with:
+          name: todo-discovery
+          path: todo-discovery.txt
+
+  backlog-validation:
+    name: Validate Backlog Structure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml jsonschema
+
+      - name: Validate backlog structure
+        run: |
+          python -c "
+          import yaml
+          import sys
+          
+          # Load and validate backlog.yml
+          try:
+              with open('backlog.yml', 'r') as f:
+                  data = yaml.safe_load(f)
+              
+              # Basic structure validation
+              assert 'items' in data, 'Missing items section'
+              assert 'metrics' in data, 'Missing metrics section'
+              
+              # Validate each item
+              required_fields = ['id', 'title', 'type', 'description', 'effort', 'value', 'time_criticality', 'risk_reduction', 'wsjf_score', 'status']
+              
+              for item in data['items']:
+                  for field in required_fields:
+                      assert field in item, f'Missing field {field} in item {item.get(\"id\", \"unknown\")}'
+                  
+                  # Validate WSJF calculation
+                  expected_wsjf = round((item['value'] + item['time_criticality'] + item['risk_reduction']) / item['effort'], 2)
+                  actual_wsjf = item['wsjf_score']
+                  assert abs(expected_wsjf - actual_wsjf) < 0.01, f'WSJF mismatch for {item[\"id\"]}: expected {expected_wsjf}, got {actual_wsjf}'
+              
+              print('✅ Backlog structure is valid')
+              
+          except Exception as e:
+              print(f'❌ Backlog validation failed: {e}')
+              sys.exit(1)
+          "
+
+  metrics-generation:
+    name: Generate Backlog Metrics
+    runs-on: ubuntu-latest
+    needs: [backlog-validation]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml matplotlib seaborn pandas
+
+      - name: Generate metrics report
+        run: |
+          python src/backlog_manager.py --metrics > backlog-metrics.json
+          
+          # Generate metrics dashboard
+          python -c "
+          import json
+          import matplotlib.pyplot as plt
+          import seaborn as sns
+          
+          with open('backlog-metrics.json', 'r') as f:
+              metrics = json.load(f)
+          
+          # Create visualizations
+          fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(15, 10))
+          fig.suptitle('Backlog Metrics Dashboard', fontsize=16)
+          
+          # Status distribution
+          status_data = metrics['distributions']['status']
+          ax1.bar(status_data.keys(), status_data.values())
+          ax1.set_title('Items by Status')
+          ax1.tick_params(axis='x', rotation=45)
+          
+          # Type distribution  
+          type_data = metrics['distributions']['type']
+          ax2.pie(type_data.values(), labels=type_data.keys(), autopct='%1.1f%%')
+          ax2.set_title('Items by Type')
+          
+          # WSJF distribution
+          wsjf_data = metrics['distributions']['wsjf'] 
+          ax3.bar(wsjf_data.keys(), wsjf_data.values())
+          ax3.set_title('WSJF Score Distribution')
+          
+          # Top priority items
+          top_items = metrics['top_priority_items'][:5]
+          items = [item['title'][:20] + '...' if len(item['title']) > 20 else item['title'] for item in top_items]
+          scores = [item['wsjf_score'] for item in top_items]
+          ax4.barh(items, scores)
+          ax4.set_title('Top Priority Items')
+          
+          plt.tight_layout()
+          plt.savefig('backlog-dashboard.png', dpi=300, bbox_inches='tight')
+          print('Dashboard generated: backlog-dashboard.png')
+          "
+
+      - name: Upload metrics artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: backlog-metrics
+          path: |
+            backlog-metrics.json
+            backlog-dashboard.png
+
+      - name: Comment metrics on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const metrics = JSON.parse(fs.readFileSync('backlog-metrics.json', 'utf8'));
+            
+            const comment = `
+            ## 📊 Backlog Metrics Report
+            
+            ### Summary
+            - **Total Items**: ${metrics.summary.total_items}
+            - **Average WSJF Score**: ${metrics.summary.avg_wsjf_score}
+            - **High Risk Items**: ${metrics.summary.high_risk_items}
+            
+            ### Status Distribution
+            ${Object.entries(metrics.distributions.status)
+              .map(([status, count]) => `- **${status}**: ${count}`)
+              .join('\n')}
+            
+            ### Top Priority Items
+            ${metrics.top_priority_items.slice(0, 3)
+              .map((item, i) => `${i+1}. **${item.title}** (WSJF: ${item.wsjf_score})`)
+              .join('\n')}
+            
+            *Metrics updated: ${new Date().toISOString()}*
+            `;
+            
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+
+  backlog-sync:
+    name: Sync with GitHub Issues
+    runs-on: ubuntu-latest
+    needs: [backlog-validation]
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml requests
+
+      - name: Sync backlog with GitHub Issues
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python -c "
+          import yaml
+          import requests
+          import os
+          
+          # Load backlog
+          with open('backlog.yml', 'r') as f:
+              data = yaml.safe_load(f)
+          
+          headers = {
+              'Authorization': f'Bearer {os.environ[\"GITHUB_TOKEN\"]}',
+              'Accept': 'application/vnd.github.v3+json'
+          }
+          
+          repo = '${{ github.repository }}'
+          
+          for item in data['items']:
+              if item['status'] in ['NEW', 'REFINED', 'READY', 'DOING'] and 'github-issue' not in [link.get('type') for link in item.get('links', [])]:
+                  # Create GitHub issue for active backlog items without issues
+                  issue_body = f'''
+          ## Description
+          {item['description']}
+          
+          ## Acceptance Criteria
+          {chr(10).join('- ' + criteria for criteria in item['acceptance_criteria'])}
+          
+          ## WSJF Metrics
+          - **Value**: {item['value']}
+          - **Time Criticality**: {item['time_criticality']}
+          - **Risk Reduction**: {item['risk_reduction']}
+          - **Effort**: {item['effort']}
+          - **WSJF Score**: {item['wsjf_score']}
+          
+          ---
+          *Backlog ID: {item['id']}*
+          *Status: {item['status']}*
+          '''
+                  
+                  issue_data = {
+                      'title': f'[{item[\"id\"]}] {item[\"title\"]}',
+                      'body': issue_body,
+                      'labels': [f'type:{item[\"type\"]}', f'status:{item[\"status\"].lower()}', 'backlog-sync']
+                  }
+                  
+                  response = requests.post(
+                      f'https://api.github.com/repos/{repo}/issues',
+                      headers=headers,
+                      json=issue_data
+                  )
+                  
+                  if response.status_code == 201:
+                      issue = response.json()
+                      print(f'Created issue #{issue[\"number\"]} for {item[\"id\"]}')
+                  else:
+                      print(f'Failed to create issue for {item[\"id\"]}: {response.status_code}')
+          "
+
+  health-check:
+    name: Backlog Health Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Health check
+        run: |
+          python -c "
+          import yaml
+          from datetime import datetime, timedelta
+          
+          with open('backlog.yml', 'r') as f:
+              data = yaml.safe_load(f)
+          
+          warnings = []
+          
+          # Check for stale items
+          for item in data['items']:
+              if item['status'] == 'DOING':
+                  created = datetime.fromisoformat(item['created_at'].replace('Z', '+00:00'))
+                  if datetime.now().replace(tzinfo=created.tzinfo) - created > timedelta(days=7):
+                      warnings.append(f'Item {item[\"id\"]} has been in DOING status for >7 days')
+          
+          # Check for unbalanced priorities
+          high_priority = sum(1 for item in data['items'] if item['wsjf_score'] >= 5)
+          total_items = len(data['items'])
+          
+          if high_priority > total_items * 0.3:
+              warnings.append(f'Too many high-priority items ({high_priority}/{total_items})')
+          
+          # Report health status
+          if warnings:
+              print('⚠️ Backlog health issues found:')
+              for warning in warnings:
+                  print(f'  - {warning}')
+          else:
+              print('✅ Backlog health check passed')
+          "
