@@ -1,0 +1,182 @@
+# Docker Compose for Terragon SDLC Framework
+# Production and development environments
+
+version: '3.8'
+
+services:
+  # Main application
+  terragon-sdlc:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+      args:
+        BUILD_DATE: ${BUILD_DATE:-}
+        VCS_REF: ${VCS_REF:-}
+        VERSION: ${VERSION:-1.0.0}
+    image: terragon/sdlc-framework:${VERSION:-latest}
+    container_name: terragon-sdlc-app
+    restart: unless-stopped
+    ports:
+      - "8000:8000"  # Main application
+      - "8080:8080"  # Monitoring dashboard
+      - "9090:9090"  # Metrics endpoint
+    environment:
+      - TERRAGON_ENVIRONMENT=production
+      - TERRAGON_LOG_LEVEL=INFO
+      - TERRAGON_CACHE_TYPE=redis
+      - TERRAGON_CACHE_URL=redis://redis:6379/0
+      - TERRAGON_DATABASE_URL=postgresql://terragon:${POSTGRES_PASSWORD:-terragon123}@postgres:5432/terragon_sdlc
+    volumes:
+      - terragon_data:/app/data
+      - terragon_logs:/app/logs
+      - ./config:/app/config:ro
+    depends_on:
+      - redis
+      - postgres
+    networks:
+      - terragon-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  # Redis cache
+  redis:
+    image: redis:7-alpine
+    container_name: terragon-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - terragon-network
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-terragon123}
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # PostgreSQL database
+  postgres:
+    image: postgres:15-alpine
+    container_name: terragon-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=terragon_sdlc
+      - POSTGRES_USER=terragon
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-terragon123}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init:/docker-entrypoint-initdb.d:ro
+    networks:
+      - terragon-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U terragon -d terragon_sdlc"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Monitoring with Prometheus
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: terragon-prometheus
+    restart: unless-stopped
+    ports:
+      - "9091:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    networks:
+      - terragon-network
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+
+  # Grafana for visualization
+  grafana:
+    image: grafana/grafana:latest
+    container_name: terragon-grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin123}
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources:ro
+    networks:
+      - terragon-network
+    depends_on:
+      - prometheus
+
+  # NGINX reverse proxy
+  nginx:
+    image: nginx:alpine
+    container_name: terragon-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/ssl/certs:ro
+      - nginx_logs:/var/log/nginx
+    networks:
+      - terragon-network
+    depends_on:
+      - terragon-sdlc
+      - grafana
+
+# Development override
+  terragon-dev:
+    build:
+      target: development
+    image: terragon/sdlc-framework:dev
+    container_name: terragon-sdlc-dev
+    restart: "no"
+    volumes:
+      - .:/app:cached
+      - dev_cache:/app/.cache
+    environment:
+      - TERRAGON_ENVIRONMENT=development
+      - TERRAGON_LOG_LEVEL=DEBUG
+    profiles:
+      - dev
+    command: ["tail", "-f", "/dev/null"]
+
+networks:
+  terragon-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  terragon_data:
+    driver: local
+  terragon_logs:
+    driver: local
+  redis_data:
+    driver: local
+  postgres_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+  nginx_logs:
+    driver: local
+  dev_cache:
+    driver: local

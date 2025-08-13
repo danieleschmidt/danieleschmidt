@@ -1,0 +1,16 @@
+{
+  "missing_files": [],
+  "syntax_errors": [],
+  "import_errors": [],
+  "config_errors": [],
+  "quality_issues": [
+    "Found 3 potential hardcoded secrets"
+  ],
+  "test_issues": [],
+  "summary": {
+    "status": "PASS_WITH_WARNINGS",
+    "total_errors": 0,
+    "total_warnings": 1,
+    "timestamp": 1755124607.0457613
+  }
+}
