@@ -330,7 +330,7 @@ Issues = "https://github.com/yourusername/{project_name}/issues"
 line-length = 88
 target-version = ['py39']
 include = '\\.pyi?$'
-extend-exclude = '''
+extend-exclude = \"\"\"
 /(
   \\.git
 | \\.hg
@@ -342,7 +342,7 @@ extend-exclude = '''
 | build
 | dist
 )/
-'''
+\"\"\"
 
 [tool.isort]
 profile = "black"
