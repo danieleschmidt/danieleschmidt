@@ -1,61 +1,33 @@
-<h1 align="center">Daniel Schmidt</h1>
+# Daniel Schmidt
 
-<p align="center">
-  PhD Student · Software Engineer · ML Researcher
-</p>
-
-<p align="center">
-  <a href="https://github.com/danieleschmidt">
-    <img alt="GitHub followers" src="https://img.shields.io/github/followers/danieleschmidt?label=Follow&style=social">
-  </a>
-  <a href="https://linkedin.com/in/daniel-schmidt-574482b8">
-    <img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-0077B5?logo=linkedin&logoColor=white">
-  </a>
-  <img alt="Location" src="https://img.shields.io/badge/Washington%20DC-grey?logo=google-maps">
-</p>
+Software engineer and CS PhD student. I build ML systems at Thomson Reuters Special Services and research knowledge graph construction for my dissertation at Towson University.
 
 ---
 
-## About
+### Research
 
-PhD student researching knowledge graphs and document understanding. Software engineer at Thomson Reuters Special Services, building ML systems for information extraction and analysis. I work at the intersection of graph neural networks, NLP, and applied ML systems.
+**DocGraph** — my dissertation work on document-level knowledge graph extraction. Hierarchical 5-tier entity fusion (alias → type normalization → fuzzy → embedding → LLM cascade), cross-document transitive inference, and provenance-preserving graphs. Validated at 97.6% recall on 125K ICIJ Offshore Leaks ground truth pairs using only the first two tiers — zero LLM cost. Targeting ACL 2027 Industry Track.
 
-- 🎓 PhD student — dissertation: **DocGraph** (document knowledge graph extraction)
-- 💼 Software Engineer @ TRSS — multilingual NLP, RAG, LLM tooling
-- 🧮 B.S. Mathematics, UMass Amherst · M.S. Computer Science, Wentworth Institute
-- 📍 Washington, DC
+**hypervector-lab** — production-ready hyperdimensional computing in PyTorch 2.5. Multi-modal encoders, hardware acceleration, real benchmark suite.
 
 ---
 
-## Featured Projects
+### Active Projects
 
-### 🧠 Research & ML
+**[neural-trader](https://github.com/danieleschmidt/neural-trader)** — algorithmic paper trading system. 10-layer signal stack: RSI/MACD, VADER sentiment, put/call ratio, insider transactions, earnings catalyst, vol targeting, ATR stops, macro composite regime, pre-market gap. LightGBM hybrid (AUC 0.639, Sharpe 2.70 OOS backtest). Running paper account on Alpaca.
 
-| Project | Description |
-|---------|-------------|
-| [DocGraph](https://github.com/danieleschmidt/DocGraph) | Dissertation project: knowledge graph extraction from scientific documents using GNNs |
-| [hypervector-lab](https://github.com/danieleschmidt/hypervector-lab) | Hyperdimensional computing experiments — encode/decode, similarity search, classifier benchmarks |
-| [photonic-ai-simulator](https://github.com/danieleschmidt/photonic-ai-simulator) | Optical computing simulation: Mach-Zehnder switch networks for photonic matrix multiply |
-| [AI-Scientist-v2](https://github.com/danieleschmidt/AI-Scientist-v2) | Agentic scientific discovery via hypothesis tree search and automated experiment simulation |
-
-### 📈 Systems & Tools
-
-| Project | Description |
-|---------|-------------|
-| [neural-trader](https://github.com/danieleschmidt/neural-trader) | ML-driven paper trading system with real-time news signal processing and Alpaca integration |
-| [YotubeAutomation](https://github.com/danieleschmidt/YotubeAutomation) | YouTube toolkit: video metadata, playlist management, thumbnail download, iCal schedule export |
-| [advent-of-code](https://github.com/danieleschmidt/advent-of-code) | Advent of Code solutions in Python — clean implementations with utility tests |
+**[hypervector-lab](https://github.com/danieleschmidt/hypervector-lab)** — HDC toolkit. Binary/bipolar/thermometer encoders, associative memory, one-shot classification, PyTorch integration.
 
 ---
 
-## GitHub Stats
+### Background
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=danieleschmidt&show_icons=true&theme=default&hide_border=true&count_private=true" alt="GitHub Stats">
-</p>
+- PhD CS, Towson University (dissertation: entity fusion for knowledge graphs)
+- M.S. Computer Science, Wentworth Institute of Technology
+- B.S. Mathematics, UMass Amherst
+- Software Engineer @ Thomson Reuters Special Services — multilingual NLP, LLM tooling, information extraction
+- Based in Maryland
 
 ---
 
-## Get in Touch
-
-Open an issue on any project, or find me on [LinkedIn](https://linkedin.com/in/daniel-schmidt-574482b8).
+*192 repos — mostly ML research, systems work, and trading infrastructure.*
